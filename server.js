@@ -14,7 +14,7 @@ const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
 
-const adapter = new TextFileSync(__dirname, "..", "db.json");
+const adapter = new TextFileSync(__dirname, "db.json");
 const db = new Low(adapter);
 // db.defaults({ todos: [] }).write();
 db.data = { todos: [] };
