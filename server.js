@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { JSONFile, low } from "lowdb";
+import { JSONFile, Low } from "lowdb";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import morgan from "morgan";
@@ -17,7 +17,7 @@ const db = new Low(adapter);
 await db.read();
 db.data ||= { todos: [] };
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 app.db = db;
 app.use(express.json());
@@ -28,7 +28,7 @@ app.use("/todos", todosRouter);
 app.use("/docs", SwaggerUI.serve, SwaggerUI.setup(docs));
 
 async function initalize() {
-  app.listen(3000);
+  app.listen(4000);
 }
 
 initalize().finally(() => console.log(`server is running on port: ${PORT}`));

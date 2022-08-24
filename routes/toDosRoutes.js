@@ -15,7 +15,8 @@ router.post("/", async (req, res) => {
     ...req.body,
   };
   try {
-    await req.app.get("todos").push(todo).write();
+    req.app.db.data.todos.push(todo);
+    await req.app.db.write();
     return res.send(201, "Todo is saved successfully");
   } catch (err) {
     return res.send(500, { err });
