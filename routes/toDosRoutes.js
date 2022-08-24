@@ -1,4 +1,4 @@
-// import { nanoid } from "../node_modules/nanoid/nanoid.js";
+import { nanoid } from "nanoid";
 import express from "express";
 
 const router = express.Router();
@@ -11,14 +11,14 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   let todo = {
-    // id: nanoid(idLength),
+    id: nanoid(idLength),
     ...req.body,
   };
   try {
     await req.app.get("todos").push(todo).write();
-    return res.sendStatus(201).send("Todo is saved successfully");
+    return res.send(201, "Todo is saved successfully");
   } catch (err) {
-    return res.send({ err });
+    return res.send(500, { err });
   }
 });
 
