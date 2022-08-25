@@ -1,9 +1,7 @@
-import { basicInfo } from "basicInfo";
+import { basicInfo } from "./basicInfo.js";
 
 const config = {
   ...basicInfo,
 };
-
-console.log({ config });
 
 export default config;

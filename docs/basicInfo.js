@@ -11,4 +11,4 @@ const basicInfo = {
   },
 };
 
-export default { basicInfo };
+export { basicInfo };
